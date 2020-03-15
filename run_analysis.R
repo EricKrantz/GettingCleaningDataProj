@@ -41,11 +41,21 @@ dat <- rbind(dat_test, dat_train) %>%
     mutate(set = factor(set),
            subject = factor(subject)) %>% 
     select(subject, activity, set, contains('mean()'), contains('std()')) %>% 
-    gather(key = 'sensor', value = 'value', -subject, -activity, -set) %>% 
-    mutate(sensor = factor(sensor)) %>% 
-    arrange(set, subject, activity, sensor)
+    gather(key = 'variable', value = 'value', -subject, -activity, -set) %>% 
+    mutate(variable = factor(variable)) %>% 
+    arrange(set, subject, activity, variable)
 
 rm('activities', 'activities_test', 'activities_train', 'dat_test', 'dat_test_sub',
    'dat_train', 'dat_train_sub', 'features')
 
-#write.csv(dat, file = "Mean_StDev.csv", quote = FALSE)
+# write.csv(dat, file = "Mean_StDev.csv", quote = FALSE)
+
+# check if it all makes sense
+table(dat$subject, dat$activity, dat$set)
+
+# Calculate the average value of each combination (subject and activity)
+dat_summary <- dat %>% 
+    group_by(subject, activity) %>% 
+    summarize(mean(value))
+
+# write.csv(dat_summary, file = "Mean_StDev_Summary.csv", quote = FALSE)

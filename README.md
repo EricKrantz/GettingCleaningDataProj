@@ -37,5 +37,5 @@ Column   | Class   | What it is
 subject  | Factor  | Identifier of the person ("subject") who is wearing the device
 activity | Factor  | The activity of the subject (e.g., walking, sitting, ...)
 set      | Factor  | Training or Test data? 
-sensor   | Factor  | Sensor identifier including whether mean or stdev
-value    | numeric | data value  
+variable   | Factor  | Sensor identifier including whether mean or stdev
+value    | Numeric | Data value  
