@@ -41,9 +41,9 @@ dat <- rbind(dat_test, dat_train) %>%
     mutate(set = factor(set),
            subject = factor(subject)) %>% 
     select(subject, activity, set, contains('mean()'), contains('std()')) %>% 
-    gather(key = 'variable', value = 'value', -subject, -activity, -set) %>% 
-    mutate(variable = factor(variable)) %>% 
-    arrange(set, subject, activity, variable)
+    gather(key = 'sensor', value = 'value', -subject, -activity, -set) %>% 
+    mutate(sensor = factor(sensor)) %>% 
+    arrange(set, subject, activity, sensor)
 
 rm('activities', 'activities_test', 'activities_train', 'dat_test', 'dat_test_sub',
    'dat_train', 'dat_train_sub', 'features')
