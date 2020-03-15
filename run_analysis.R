@@ -55,7 +55,7 @@ table(dat$subject, dat$activity, dat$set)
 
 # Calculate the average value of each combination (subject and activity)
 dat_summary <- dat %>% 
-    group_by(subject, activity) %>% 
-    summarize(mean(value))
+    group_by(subject, activity, sensor) %>% 
+    summarize(mean = mean(value))
 
-# write.csv(dat_summary, file = "Mean_StDev_Summary.csv", quote = FALSE)
+# write.table(dat_summary, file = "Mean_StDev_Summary.txt", quote = FALSE, row.names = FALSE)
