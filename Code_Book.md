@@ -4,6 +4,9 @@ A script called "run_analysis.R" was created to load all data, match data labels
 
 dat <- read.csv(file = "https://raw.githubusercontent.com/EricKrantz/GettingCleaningDataProj/master/Mean_StDev.csv")
 
+### Tidy Form
+I have chosen to use the long-data form as the tidy form. In this form, "sensor" is a variable, as well as subject, activity, and set.
+
 ## Summary
 Data values were also averaged by each activity and each subject. These averages are shown in the file "dat_summary".txt. 
 

@@ -48,7 +48,7 @@ dat <- rbind(dat_test, dat_train) %>%
 rm('activities', 'activities_test', 'activities_train', 'dat_test', 'dat_test_sub',
    'dat_train', 'dat_train_sub', 'features')
 
-# write.csv(dat, file = "Mean_StDev.csv", quote = FALSE)
+#write.table(dat, file = "Mean_StDev.txt", row.name = FALSE, quote = FALSE)
 
 # check if it all makes sense
 table(dat$subject, dat$activity, dat$set)
